@@ -6,7 +6,7 @@ interface Task {
   status: string;
 }
 
-function TodoApp() {
+function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskLabel, setNewTaskLabel] = useState<string>('');
   const [newTaskStatus, setNewTaskStatus] = useState<string>('');
@@ -21,7 +21,7 @@ function TodoApp() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    if (!newTaskLabel.trim() || !newTaskStatus.trim()) return;
+    if (!newTaskLabel || !newTaskStatus) return;
     const newTask = {
       label: newTaskLabel,
       status: newTaskStatus
@@ -69,4 +69,4 @@ function TodoApp() {
   );
 }
 
-export default TodoApp;
+export default App;
